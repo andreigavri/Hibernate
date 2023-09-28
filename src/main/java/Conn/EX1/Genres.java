@@ -16,6 +16,6 @@ public class Genres {
 
     @Id
     private int id;
-    private int name;
+    private String name;
 
 }

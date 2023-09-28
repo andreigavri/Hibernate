@@ -2,6 +2,9 @@ package Conn.EX1;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+import java.util.Optional;
+
 public class GenreRepository {
 
     private final EntityManager entityManager;
@@ -47,4 +50,21 @@ public class GenreRepository {
             return null;
         }
     }
+    public Optional<Genres> findById(int id) {
+        return Optional.ofNullable(entityManager.find(Genres.class, id));
+
+    }
+
+    public List<Genres> findByName(String name) {
+        return entityManager.createQuery("SELECT g FROM genres g WHERE g.name = :name", Genres.class)
+                .setParameter("name", name)
+                .getResultList();
+    }
+
+    public List<Genres> findAll() {
+        return entityManager.createQuery("From Genres", Genres.class)
+                .getResultList();
+
+    }
+
 }

@@ -19,6 +19,8 @@ public class Main {
                 .addAnnotatedClass(Genres.class)
                 .buildSessionFactory();
 
+
+
         List<Movies> moviesList1 = new ArrayList<>();
         List<Movies> moviesList2 = new ArrayList<>();
         List<Actors> actorsList1 = new ArrayList<>();
@@ -34,6 +36,9 @@ public class Main {
         moviesList2.add(movie2);
         moviesList2.add(movie4);
 
+
+        final GenreRepository genreRepository = new GenreRepository(sessionFactory.createEntityManager());
+        genreRepository.save(new Genres(1, "Horror"));
 
 
         Actors actor1 = new Actors(1, 1987, "Michael", "Summer", moviesList1);
@@ -51,3 +56,6 @@ public class Main {
 
     }
 }
+
+
+

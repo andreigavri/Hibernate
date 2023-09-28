@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -17,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 
 
-public class Actors {
+public class Actors  {
 
     @Id
     private int id;
@@ -29,5 +30,6 @@ public class Actors {
     @ManyToMany
     @Cascade(CascadeType.ALL)
     private List<Movies> movies;
+
 
 }

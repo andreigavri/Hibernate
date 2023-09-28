@@ -15,15 +15,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Movies {
+public class Movies extends BaseEntity{
 
-    @Id
-
-    private int id;
     private String title;
     private int yearOfRelease;
     private int genreId;
     @ManyToMany(mappedBy = "movies")
     private List<Actors> actors;
 
+    public Movies(int i, String ghostRider, int i1, int i2, List<Actors> actorsList1) {
+        super();
+    }
 }
